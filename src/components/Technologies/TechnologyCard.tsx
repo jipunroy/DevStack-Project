@@ -12,7 +12,8 @@ function TechnologyCard({
   onAdd,
 }: TechnologyCardProps) {
   return (
-    <div className="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-md">
+    <div className="flex h-full min-h-60 flex-col rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-md">
+      
       {/* Top Row */}
       <div className="flex items-start justify-between">
         <div className="flex h-10 w-10 items-center justify-center rounded-md bg-gray-50">
@@ -29,44 +30,51 @@ function TechnologyCard({
       </div>
 
       {/* Technology Name */}
-      <h3 className="mt-3 text-sm font-semibold text-gray-900">
+      <h3 className="mt-3 text-sm font-semibold leading-5 text-gray-900">
         {technology.name}
       </h3>
 
       {/* Description */}
-      <p className="mt-1.5 text-[10px] leading-4 text-gray-400">
+      <p className="mt-1.5 min-h-12 text-[10px] leading-4 text-gray-400">
         {technology.description}
       </p>
 
       {/* Information */}
-      <div className="mt-4 flex items-center justify-between gap-2">
-        <span className="rounded bg-gray-50 px-2 py-1 text-[9px] text-gray-500">
-          {technology.category}
-        </span>
+      <div className="mt-auto pt-3">
+        <div className="flex min-h-7 items-center justify-between gap-2">
+          
+          {/* Category */}
+          <span className="rounded bg-gray-50 px-2 py-1 text-[9px] text-gray-500">
+            {technology.category}
+          </span>
 
-        <span className="text-[9px] text-gray-400">
-          {technology.difficulty}
-        </span>
+          {/* Difficulty */}
+          <span className="text-[9px] text-gray-400">
+            {technology.difficulty}
+          </span>
 
-        <span className="flex items-center gap-1 text-[9px] text-gray-500">
-          <span className="text-yellow-400">★</span>
-          {technology.rating}
-        </span>
+          {/* Rating */}
+          <span className="flex items-center gap-1 text-[9px] text-gray-500">
+            <span className="text-yellow-400">★</span>
+            {technology.rating}
+          </span>
+
+        </div>
+
+        {/* Add to Stack Button */}
+        <button
+          type="button"
+          onClick={() => onAdd(technology)}
+          disabled={isAdded}
+          className={`mt-3 w-full rounded-md py-2.5 text-[10px] font-medium transition ${
+            isAdded
+              ? "cursor-not-allowed bg-gray-200 text-gray-500"
+              : "bg-gray-900 text-white hover:bg-gray-800"
+          }`}
+        >
+          {isAdded ? "✓ Added to Stack" : "Add to Stack"}
+        </button>
       </div>
-
-      {/* Add to Stack Button */}
-      <button
-        type="button"
-        onClick={() => onAdd(technology)}
-        disabled={isAdded}
-        className={`mt-4 w-full rounded-md py-2 text-[10px] font-medium transition ${
-          isAdded
-            ? "cursor-not-allowed bg-gray-200 text-gray-500"
-            : "bg-gray-900 text-white hover:bg-gray-800"
-        }`}
-      >
-        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
-      </button>
     </div>
   );
 }

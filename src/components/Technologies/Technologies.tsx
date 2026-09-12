@@ -48,6 +48,7 @@ function Technologies() {
       className="bg-white py-12 sm:py-14 lg:py-16"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+
         {/* Section Header */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
@@ -71,30 +72,13 @@ function Technologies() {
           </div>
         ) : (
           <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_260px]">
+
             {/* Technology Cards */}
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {technologies.map((technology, index) => (
+            <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {technologies.map((technology) => (
                 <div
                   key={technology.id}
-                  className={`
-                    transition-transform
-                    duration-300
-                    ${
-                      index % 3 === 0
-                        ? "lg:translate-y-0"
-                        : ""
-                    }
-                    ${
-                      index % 3 === 1
-                        ? "lg:translate-y-5"
-                        : ""
-                    }
-                    ${
-                      index % 3 === 2
-                        ? "lg:translate-y-2"
-                        : ""
-                    }
-                  `}
+                  className="h-full"
                 >
                   <TechnologyCard
                     technology={technology}
@@ -113,6 +97,7 @@ function Technologies() {
               onRemove={handleRemove}
               onRemoveAll={handleRemoveAll}
             />
+
           </div>
         )}
       </div>
