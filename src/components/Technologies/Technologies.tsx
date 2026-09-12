@@ -48,7 +48,7 @@ function Technologies() {
         <div className="mb-8">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
             Explore the{" "}
-            <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-orange-500 via-pink-500 to-violet-600 bg-clip-text text-transparent">
               Technologies
             </span>
           </h2>
@@ -60,7 +60,7 @@ function Technologies() {
 
         {/* Loading State */}
         {loading ? (
-          <div className="flex min-h-[300px] items-center justify-center">
+          <div className="flex min-h-75 items-center justify-center">
             <p className="text-sm text-gray-400">
               Loading technologies...
             </p>
