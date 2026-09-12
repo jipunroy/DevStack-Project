@@ -1,75 +1,73 @@
-# React + TypeScript + Vite
+# 🚀 DevStack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive technology stack management website built with React.  
+DevStack allows users to explore different technologies, view their details, and build their own personalized technology stack.
 
-Currently, two official plugins are available:
+## 🌐 Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 **Live Demo:** [https://devstack-project-ph.netlify.app/]
 
-## React Compiler
+## 📂 Repository
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔗 **GitHub:** [https://github.com/jipunroy/DevStack-Project]
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ About The Project
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**DevStack** is a React-based web application where users can explore popular technologies and create their own personalized stack.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The project focuses on a clean UI, responsive design, reusable React components, and simple state management. Users can select technologies, add them to their stack, and remove them whenever they want.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
 
-```
+## 🛠️ Technologies Used
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+- ⚛️ React.js
+- 🎨 Tailwind CSS
+- 🌼 DaisyUI
+- 📜 JavaScript (ES6+)
+- 🔔 React-Toastify
+- 📦 JSON
+- ⚡ Vite
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🎯 Key Features
 
-```
+### 1. 🔎 Explore Technologies
+Users can browse different technologies and see useful information about each technology.
+
+### 2. 🧩 Build Your Own Stack
+Users can add technologies to their personal stack and manage the selected items easily.
+
+### 3. 💬 Interactive User Experience
+The project provides toast notifications and smooth interactions when users add or remove technologies.
+
+---
+
+## 🎨 Gradient Brand Theme
+
+DevStack uses a single shared gradient throughout the application.
+
+**Gradient:** Orange → Pink → Violet
+
+The same gradient is used for:
+
+- 🟠 Brand name
+- 🟣 Hero heading highlight
+- 🌈 Primary buttons
+
+The gradient is defined in one place so the complete theme can be changed easily from a single location.
+
+Example:
+
+```css
+:root {
+  --brand-gradient: linear-gradient(
+    90deg,
+    #f97316,
+    #ec4899,
+    #8b5cf6
+  );
+}
