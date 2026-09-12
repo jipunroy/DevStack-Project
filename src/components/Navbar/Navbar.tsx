@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import logo from "../../assets/logo-text.png";
 
 function Navbar() {
@@ -9,7 +10,7 @@ function Navbar() {
       <nav className="mx-auto max-w-7xl">
 
         {/* Desktop Navbar */}
-        <div className="hidden h-[68px] items-center justify-between px-5 md:flex">
+        <div className="hidden h-17 items-center justify-between px-5 md:flex">
 
           {/* Logo */}
           <a href="#">
@@ -69,7 +70,7 @@ function Navbar() {
 
             <button
               type="button"
-              className="rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 px-5 py-2 text-sm font-medium text-white"
+              className="rounded-full bg-[#D91B7E] px-5 py-2 text-sm font-medium text-white"
             >
               Sign Up
             </button>
@@ -77,18 +78,18 @@ function Navbar() {
         </div>
 
         {/* Mobile Navbar */}
-        <div className="relative flex h-[66px] items-center justify-between px-5 md:hidden">
+        <div className="relative flex h-16.5 items-center justify-between px-5 md:hidden">
 
           {/* Hamburger */}
           <button
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex h-9 w-9 flex-col justify-center gap-[5px]"
+            className="flex h-9 w-9 flex-col justify-center gap-1.25"
             aria-label="Toggle menu"
           >
-            <span className="block h-[2px] w-7 bg-gray-500" />
-            <span className="block h-[2px] w-7 bg-gray-500" />
-            <span className="block h-[2px] w-7 bg-gray-500" />
+            <span className="block h-0.5 w-7 bg-gray-500" />
+            <span className="block h-0.5 w-7 bg-gray-500" />
+            <span className="block h-0.5 w-7 bg-gray-500" />
           </button>
 
           {/* Center Logo */}
@@ -114,7 +115,7 @@ function Navbar() {
 
             <button
               type="button"
-              className="rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 px-4 py-2 text-xs font-semibold text-white"
+              className="rounded-full bg-[#D91B7E] px-4 py-2 text-xs font-semibold text-white"
             >
               Sign Up
             </button>
@@ -125,7 +126,6 @@ function Navbar() {
         {isMenuOpen && (
           <div className="border-t border-gray-100 px-5 py-4 md:hidden">
             <div className="flex flex-col gap-4">
-
               <a
                 href="#"
                 onClick={() => setIsMenuOpen(false)}
@@ -165,11 +165,9 @@ function Navbar() {
               >
                 Contact
               </a>
-
             </div>
           </div>
         )}
-
       </nav>
     </header>
   );

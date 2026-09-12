@@ -6,14 +6,31 @@ interface TechnologyCardProps {
   onAdd: (technology: Technology) => void;
 }
 
+const badgeColors: Record<string, string> = {
+  Popular: "bg-sky-50 text-sky-500",
+  Versatile: "bg-emerald-50 text-emerald-500",
+  Fast: "bg-orange-50 text-orange-500",
+  "Top SQL": "bg-indigo-50 text-indigo-500",
+  Standard: "bg-green-50 text-green-500",
+  Cache: "bg-red-50 text-red-500",
+  Ubiquitous: "bg-amber-50 text-amber-500",
+  Essential: "bg-blue-50 text-blue-500",
+  Robust: "bg-cyan-50 text-cyan-500",
+  Modern: "bg-violet-50 text-violet-500",
+  Containers: "bg-teal-50 text-teal-500",
+};
+
 function TechnologyCard({
   technology,
   isAdded,
   onAdd,
 }: TechnologyCardProps) {
+  const badgeColor =
+    badgeColors[technology.badge] ?? "bg-gray-50 text-gray-500";
+
   return (
     <div className="flex h-full min-h-60 flex-col rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-md">
-      
+
       {/* Top Row */}
       <div className="flex items-start justify-between">
         <div className="flex h-10 w-10 items-center justify-center rounded-md bg-gray-50">
@@ -24,7 +41,10 @@ function TechnologyCard({
           />
         </div>
 
-        <span className="rounded-full bg-green-50 px-2 py-1 text-[9px] font-medium text-green-600">
+        {/* Badge */}
+        <span
+          className={`rounded-full px-2 py-1 text-[9px] font-medium ${badgeColor}`}
+        >
           {technology.badge}
         </span>
       </div>
@@ -58,7 +78,6 @@ function TechnologyCard({
             <span className="text-yellow-400">★</span>
             {technology.rating}
           </span>
-
         </div>
 
         {/* Add to Stack Button */}

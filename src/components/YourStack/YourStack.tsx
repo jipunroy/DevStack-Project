@@ -21,9 +21,12 @@ function YourStack({
         </h2>
 
         <p className="mt-1 text-[10px] text-gray-400">
-          {stack.length} Technology
-          {stack.length !== 1 ? "ies" : "y"} Selected
-        </p>
+  {stack.length === 0
+    ? "No Technologies Selected Yet"
+    : `${stack.length} ${
+        stack.length === 1 ? "Technology" : "Technologies"
+      } Selected`}
+      </p>
       </div>
 
       {/* Stack Items */}
@@ -70,8 +73,8 @@ function YourStack({
       ) : (
         <div className="rounded-md border border-dashed border-gray-200 py-6 text-center">
           <p className="text-[10px] text-gray-400">
-            No technologies selected.
-          </p>
+            Your Stack Is Empty
+        </p>
         </div>
       )}
 
