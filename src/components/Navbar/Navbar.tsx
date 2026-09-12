@@ -1,22 +1,178 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import { defineConfig, globalIgnores } from 'eslint/config'
+import { useState } from "react";
+import logo from "../../assets/logo-text.png";
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
-    ],
-    languageOptions: {
-      globals: globals.browser,
-    },
-  },
-])
+function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white">
+      <nav className="mx-auto max-w-7xl">
+
+        {/* Desktop Navbar */}
+        <div className="hidden h-[68px] items-center justify-between px-5 md:flex">
+
+          {/* Logo */}
+          <a href="#">
+            <img
+              src={logo}
+              alt="Dev Stack"
+              className="h-8 w-auto"
+            />
+          </a>
+
+          {/* Navigation */}
+          <div className="flex items-center gap-7">
+            <a
+              href="#"
+              className="text-sm font-medium text-pink-500"
+            >
+              Home
+            </a>
+
+            <a
+              href="#technologies"
+              className="text-sm font-medium text-gray-600 hover:text-pink-500"
+            >
+              Technologies
+            </a>
+
+            <a
+              href="#projects"
+              className="text-sm font-medium text-gray-600 hover:text-pink-500"
+            >
+              Projects
+            </a>
+
+            <a
+              href="#about"
+              className="text-sm font-medium text-gray-600 hover:text-pink-500"
+            >
+              About
+            </a>
+
+            <a
+              href="#contact"
+              className="text-sm font-medium text-gray-600 hover:text-pink-500"
+            >
+              Contact
+            </a>
+          </div>
+
+          {/* Auth Buttons */}
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              className="text-sm font-medium text-gray-700 hover:text-pink-500"
+            >
+              Sign In
+            </button>
+
+            <button
+              type="button"
+              className="rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 px-5 py-2 text-sm font-medium text-white"
+            >
+              Sign Up
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navbar */}
+        <div className="relative flex h-[66px] items-center justify-between px-5 md:hidden">
+
+          {/* Hamburger */}
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="flex h-9 w-9 flex-col justify-center gap-[5px]"
+            aria-label="Toggle menu"
+          >
+            <span className="block h-[2px] w-7 bg-gray-500" />
+            <span className="block h-[2px] w-7 bg-gray-500" />
+            <span className="block h-[2px] w-7 bg-gray-500" />
+          </button>
+
+          {/* Center Logo */}
+          <a
+            href="#"
+            className="absolute left-1/2 -translate-x-1/2"
+          >
+            <img
+              src={logo}
+              alt="Dev Stack"
+              className="h-9 w-auto"
+            />
+          </a>
+
+          {/* Auth Buttons */}
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              className="text-xs font-semibold text-gray-700"
+            >
+              Sign In
+            </button>
+
+            <button
+              type="button"
+              className="rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 px-4 py-2 text-xs font-semibold text-white"
+            >
+              Sign Up
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="border-t border-gray-100 px-5 py-4 md:hidden">
+            <div className="flex flex-col gap-4">
+
+              <a
+                href="#"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-sm font-medium text-pink-500"
+              >
+                Home
+              </a>
+
+              <a
+                href="#technologies"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-sm text-gray-600"
+              >
+                Technologies
+              </a>
+
+              <a
+                href="#projects"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-sm text-gray-600"
+              >
+                Projects
+              </a>
+
+              <a
+                href="#about"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-sm text-gray-600"
+              >
+                About
+              </a>
+
+              <a
+                href="#contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-sm text-gray-600"
+              >
+                Contact
+              </a>
+
+            </div>
+          </div>
+        )}
+
+      </nav>
+    </header>
+  );
+}
+
+export default Navbar;
