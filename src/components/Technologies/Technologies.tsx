@@ -1,6 +1,8 @@
 import { useState } from "react";
+
 import type { Technology } from "../../types/technology";
 import { useTechnologies } from "../../hooks/useTechnologies";
+
 import TechnologyCard from "./TechnologyCard";
 import YourStack from "../YourStack/YourStack";
 
@@ -29,7 +31,9 @@ function Technologies() {
   // Remove one technology
   const handleRemove = (id: string) => {
     setStack((currentStack) =>
-      currentStack.filter((technology) => technology.id !== id)
+      currentStack.filter(
+        (technology) => technology.id !== id
+      )
     );
   };
 
@@ -69,15 +73,37 @@ function Technologies() {
           <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_260px]">
             {/* Technology Cards */}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {technologies.map((technology) => (
-                <TechnologyCard
+              {technologies.map((technology, index) => (
+                <div
                   key={technology.id}
-                  technology={technology}
-                  isAdded={stack.some(
-                    (item) => item.id === technology.id
-                  )}
-                  onAdd={handleAddToStack}
-                />
+                  className={`
+                    transition-transform
+                    duration-300
+                    ${
+                      index % 3 === 0
+                        ? "lg:translate-y-0"
+                        : ""
+                    }
+                    ${
+                      index % 3 === 1
+                        ? "lg:translate-y-5"
+                        : ""
+                    }
+                    ${
+                      index % 3 === 2
+                        ? "lg:translate-y-2"
+                        : ""
+                    }
+                  `}
+                >
+                  <TechnologyCard
+                    technology={technology}
+                    isAdded={stack.some(
+                      (item) => item.id === technology.id
+                    )}
+                    onAdd={handleAddToStack}
+                  />
+                </div>
               ))}
             </div>
 
